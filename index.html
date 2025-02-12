@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Robot Control</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
+    button { padding: 15px 25px; font-size: 20px; }
+  </style>
+</head>
+<body>
+
+  <h1>Control the Robot</h1>
+  <button id="moveForwardBtn">Move Forward</button>
+  <button id="moveBackwardBtn">Move Backward</button>
+
+  <script>
+    document.getElementById('moveForwardBtn').addEventListener('click', () => {
+      fetch('http://localhost:3000/moveForward');
+    });
+
+    document.getElementById('moveBackwardBtn').addEventListener('click', () => {
+      fetch('http://localhost:3000/moveBackward');
+    });
+  </script>
+</body>
+</html>
