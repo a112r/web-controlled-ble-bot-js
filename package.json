@@ -10,7 +10,9 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@abandonware/noble": "^1.9.2-26",
+    "@stoprocent/bluetooth-hci-socket": "^1.4.4",
     "express": "^4.21.2",
-    "noble": "^1.9.1"
+    "noble": "^0.0.2"
   }
 }
