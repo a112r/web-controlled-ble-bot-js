@@ -1,8 +1,18 @@
+# Arduino Robot with BLE Control
+
 Hi!
 
-In this project I attempted to an arduino robot that can move around, and can be controlled via bluetooth low energy connection from my laptop that is hosting a webserver and website, such that anyone can go to that website to control my robot. This still has some issues at the moment but it should run as an initial proof of concept! I will update the files as I make more progress on this project.
+In this project, I attempted to create an Arduino robot that can move around and be controlled via a Bluetooth Low Energy (BLE) connection from my laptop. The laptop is hosting a web server and website, such that anyone can visit the website to control the robot. Currently, there are some issues, but it should function as an initial proof of concept. I will update the files as I make more progress on this project.
 
+## Updates on this project:
 
-Updates on this project:
+I initially used Node.js for the local web server and tried to use the Noble package for BLE communication. While I was able to get the local server and website working, the BLE connection didn’t seem to cooperate, throwing the error:
 
-I was using node.js for the local webserver and obviously tried to use noble to get it to work. I could get the local server and website working but the BLE connection never seemed to work as I kept getting one very specific "Error: No compatible USB Bluetooth 4.0 device found!". Upon more research online, I found that it was because the noble package happens to be old and no longer looked after, and hence a lot of people have faced issues with it as it requires a very specific usb bluetooth driver. As a result, people did make ways to get around that like https://www.youtube.com/watch?v=mL9B8wuEdms&t=106s and also https://github.com/abandonware/noble?tab=readme-ov-file#windows that is more up to date. That method however also needs a physical usb bluetooth dongle (https://github.com/abandonware/noble?tab=readme-ov-file#windows) and also uses Zadig tool (that essentially takes over and disables the bluetooth driver of my laptop- had to update driver to get bluetooth working again) and hence does not work for my purpose (I dont want to buy an additional device and cant make one with the microcontrollers I own). Hence I don't see a way to achieve full functionality through javascript(node+noble) server to ble via right now, and have used the python + flask approach to create a web server(app?) and have seen a lot more success with that (in a different repository). At some future time however I do wish to come back to this project and get the javascript approach to work even if just for personal satisfaction due to the many hours/days i had already put into this approach (I did learn a lot of javascript though so that's nice).
+```Error: No compatible USB Bluetooth 4.0 device found!```
+
+After researching the issue, I found that the Noble package is outdated and no longer maintained, which causes compatibility problems with modern systems. It requires a very specific USB Bluetooth driver, and many people have faced similar issues. Solutions like [this YouTube video(outdated)](https://www.youtube.com/watch?v=mL9B8wuEdms&t=106s) and the [abandonware noble](https://github.com/abandonware/noble?tab=readme-ov-file#windows) suggest workarounds, but they require a physical USB Bluetooth dongle and also the use of the Zadig tool, which disables my laptop’s Bluetooth driver. I didn’t want to buy an additional device or use an external dongle.
+
+As a result, I couldn't get the BLE connection to work with JavaScript (Node.js + Noble) for this project. Instead, I switched to a [Python + Flask](https://github.com/a112r/web-controlled-ble-bot-py) based approach to create the web server, and I had much more success with that.
+
+At some point in the future, I do hope to revisit this project and get the JavaScript approach working, if only for personal satisfaction after investing so many hours into it. On the bright side, I did learn a lot of JavaScript during this process, so it wasn’t a total loss! 
+
